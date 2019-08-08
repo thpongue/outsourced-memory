@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let key of dataKeys">
+        <div [innerHTML]="toString(key) | escapeHtmlTags : key | sanitizeHtmlPipe"></div>
+        <app-nested-list [data]="data[key]"></app-nested-list>
+    </li>
+</ul>

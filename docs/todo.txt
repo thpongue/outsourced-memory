@@ -1,0 +1,4 @@
+[] outsourced-memory
+    [] each level should have its own url which only shows that level and downward
+    [] top level option to switch between list view and mind-map view
+    [] have the option to link externally or to a more detailed internal link

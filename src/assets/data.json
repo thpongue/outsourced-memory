@@ -1,0 +1,37 @@
+{
+  "data": {
+    "development": {
+      "angular": {
+        "routing": {
+          "router-outlet": {
+            "text": "this is not intended to contain the component just to mark where it's meant to go - see the comment by Pascal Precht in the link",
+            "link": "https://github.com/angular/router/issues/325"
+          },
+          "nested data-driven components": {
+            "text": "pass the app-nested-list the topmost level then within app-nested-list component extract the next layer of data which it passes to another instance of app-nested-list\nthis continues recursively",
+            "code": "// parent node\n<app-nested-list [data]=\"data\"></app-nested-list>\n\n// then within the nested-list component\n<ul>\n<li *ngFor=\"let key of dataKeys\">\n<div [innerHTML]=\"toString(key) | escapeHtmlTags | sanitizeHtmlPipe\"></div>\n<app-nested-list [data]=\"data[key]\"></app-nested-list>\n</li>\n</ul>"
+          },
+          "displaying code within inner html": {
+            "text": "by default all code set via html will be added as html in the dom rather than as text, so if you want to show an html code sample you can create a pipe to replace < with &lt; and > with &gt;",
+            "code": "html.replace(/</g, '&amp;lt;').replace(/>/g, '&amp;gt;').replace(/\\n/g, '<br>');"
+          },
+          "arguments to angular pipes": {
+            "text": "when adding a pipe to your template use : to then pass parameters, : delimited for multiplesA,",
+            "code": "myString | myPipe : myParam"
+          }
+        }
+      },
+      "vim": {
+        "switch case": "~"
+      },
+      "typescript and javascript": {
+        "regex": {
+          "negative lookahead": {
+            "text": "this isn't possible in javascript / typescript but this workaround is pretty straightforward\neg if you want to match all html tags except <code>",
+            "code": "/(?!<code>)<.*>/g"
+          }
+        }
+      }
+    }
+  }
+}
