@@ -1,4 +1,8 @@
-[] outsourced-memory
+[-] outsourced-memory
+    [-] dockerise and launch on GCP
+    [] make each heading clickable to zoom in to just that layer
+    [] breadcrumbs
+    [] text truncation and click to expand
     [] each level should have its own url which only shows that level and downward
     [] top level option to switch between list view and mind-map view
     [] have the option to link externally or to a more detailed internal link
