@@ -3,7 +3,7 @@
     "development": {
       "angular": {
         "routing": {
-          "router-outlet": {
+          "router-outlet tag": {
             "text": "this is not intended to contain the component just to mark where it's meant to go - see the comment by Pascal Precht in the link",
             "link": "https://github.com/angular/router/issues/325"
           },
@@ -29,6 +29,29 @@
           "negative lookahead": {
             "text": "this isn't possible in javascript / typescript but this workaround is pretty straightforward\neg if you want to match all html tags except <code>",
             "code": "/(?!<code>)<.*>/g"
+          }
+        }
+      },
+      "nginx": {
+        "installing on a mac": "brew install nginx",
+        "basic commands": {
+          "code": "// start in background\nnginx\n\n// fast shutdown\nnginx -s stop\n\n// graceful shutdown\nnginx -quit - graceful shutdown\n\n// update from nginx.conf\nnginx -s reload"
+        },
+        "nginx.conf": "this cannot be made unique per project (without containers) - it lives in /usr/local/nginx/conf, /etc/nginx, or /usr/local/etc/nginx"
+      },
+      "nginx Dockerfile": {
+        "text": "super simple example",
+        "code": "FROM nginx // use https://hub.docker.com/_/nginx\nRUN rm /etc/nginx/conf.d/default.conf - delete the default config\nCOPY your/local/dist /usr/share/nginx/html - put your local files into the place nginx serves from\nCOPY nginx.conf /etc/nginx/nginx.conf - replace the default nginx.conf with your own one"
+      },
+      "docker": {
+        "images and containers": "a container is an instance of an image",
+        "hub": "hub.docker.com - repo of shared images",
+        "commands": {
+          "create an image": {
+            "code": "docker build -t your-project-tag-name ."
+          },
+          "create a container from an image": {
+            "code": "docker run -p 4201:4200 --name outsourcedmemory outsourcedmemory"
           }
         }
       }
