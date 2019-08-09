@@ -12,11 +12,11 @@
             "code": "// parent node\n<app-nested-list [data]=\"data\"></app-nested-list>\n\n// then within the nested-list component\n<ul>\n<li *ngFor=\"let key of dataKeys\">\n<div [innerHTML]=\"toString(key) | escapeHtmlTags | sanitizeHtmlPipe\"></div>\n<app-nested-list [data]=\"data[key]\"></app-nested-list>\n</li>\n</ul>"
           },
           "displaying code within inner html": {
-            "text": "by default all code set via html will be added as html in the dom rather than as text, so if you want to show an html code sample you can create a pipe to replace < with &lt; and > with &gt;",
+            "text": "by default all code set via html will be added as html in the dom rather than as text, so if you want to show an html code sample you can create a pipe to replace < with &amp;lt; and > with &amp;gt;",
             "code": "html.replace(/</g, '&amp;lt;').replace(/>/g, '&amp;gt;').replace(/\\n/g, '<br>');"
           },
           "arguments to angular pipes": {
-            "text": "when adding a pipe to your template use : to then pass parameters, : delimited for multiplesA,",
+            "text": "when adding a pipe to your template use : to then pass parameters, : delimited for multiples,",
             "code": "myString | myPipe : myParam"
           }
         }
@@ -40,8 +40,31 @@
         "nginx.conf": "this cannot be made unique per project (without containers) - it lives in /usr/local/nginx/conf, /etc/nginx, or /usr/local/etc/nginx"
       },
       "nginx Dockerfile": {
-        "text": "super simple example",
-        "code": "FROM nginx // use https://hub.docker.com/_/nginx\nRUN rm /etc/nginx/conf.d/default.conf - delete the default config\nCOPY your/local/dist /usr/share/nginx/html - put your local files into the place nginx serves from\nCOPY nginx.conf /etc/nginx/nginx.conf - replace the default nginx.conf with your own one"
+        "super simple example": {
+          "dockerfile": {
+            "code": "# just create the default server\nFROM nginx"
+          },
+          "create the image": {
+            "code": "docker build -t outsourcedmemory ."
+          },
+          "list all images to see your new entry": {
+            "code": "docker image ls"
+          },
+          "create the container from the image": {
+            "code": "docker run -itd --name outsourcedmemorycontainer --publish 8080:80 outsourcedmemory"
+          },
+          "list all containers to see your new entry": {
+            "code": "docker container ls"
+          },
+          "view the site": "go to http://localhost:8080/ to see the standard nginx page",
+          "get the id of the running container": {
+            "text": "copy the container id shown for your new container",
+            "code": "docker container ls"
+          },
+          "stop the running container": {
+            "code": "docker container rm <container id>"
+          }
+        }
       },
       "docker": {
         "images and containers": "a container is an instance of an image",
@@ -51,8 +74,11 @@
             "code": "docker build -t your-project-tag-name ."
           },
           "create a container from an image": {
-            "code": "docker run -p 4201:4200 --name outsourcedmemory outsourcedmemory"
+            "code": "docker run -p 4201:4200 --name your-project-tag-name your-project-tag-name"
           }
+        },
+        "stop all running containers": {
+          "code": "docker stop $(docker ps -a -q)"
         }
       }
     }
