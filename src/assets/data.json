@@ -18,11 +18,19 @@
           "arguments to angular pipes": {
             "text": "when adding a pipe to your template use : to then pass parameters, : delimited for multiples,",
             "code": "myString | myPipe : myParam"
+          },
+          "library projects": "currently ng-packagr doesn't have the ability to package up assets for library projects\n There is a workaround involving the code below in your npm scripts then referencing <your node module>/src/assets as one of the assets in your angular.json but its a bit icky. In my case I was referencing an svg file which I just put inline",
+          "todo": {
+            "micro front-ends": "using @angular/elements"
           }
         }
       },
       "vim": {
-        "switch case": "~"
+        "switch case": "~",
+        "reload current file": ":edit"
+      },
+      "tmux": {
+        "text": "I've hit the point where the number of tabs in my console are disappearing off the end of the window.\n Tmux helps with this - instead of window -E tab - terminal - shell it does window - tab - terminal -E shell.\n More accurately we have something more like window - tab - terminal shell -E tmux session -E tmux window -E tmux pane - tmux shell. Although I love the ideas here my early experiences are that nvm stopped working and my vim settings were changed. I'll come back to this but not time to resolve these types of problems at the mo"
       },
       "typescript and javascript": {
         "regex": {
@@ -78,7 +86,13 @@
           }
         },
         "stop all running containers": {
-          "code": "docker stop $(docker ps -a -q)"
+          "code": "docker stop $(docker ps -a -q)",
+        }
+      },
+      "css": {
+        "preventing double borders on n adjacent boxes": {
+          "code": "div {border-right: none;}\ndiv:last-child {border-right: 1px}",
+
         }
       }
     }

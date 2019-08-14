@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:production": "ng build --configuration=production --prod --build-optimizer",
-    "dockerBuild": "docker-compose up --build -d"
+    "dockerBuild": "docker build -t simple-nginx .",
+    "dockerRun": "docker run --rm -it -p 8080:80 simple-nginx"
   },
   "private": true,
   "dependencies": {
