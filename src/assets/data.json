@@ -95,6 +95,28 @@
           "code": "div {border-right: none;}\ndiv:last-child {border-right: 1px}",
         },
         "media query precedence": "these don't take precedence over regular css - best to stick these at the bottom of the css to ensure they're applied"
+      },
+      "npm": {
+        "using variables in scripts": {
+          "using the version property": {
+            "code": "echo $npm_package_version"
+          },
+          "using a custom property": {
+            "in your package.json add": {
+              "code": "\"config\": {\n\t\"my_prop\": \"my val\"\n}"
+            },
+            "in your script": {
+              "code": "echo $npm_package_config_my_prop"
+            }
+          },
+          "making it work cross platform": {
+            "windows requires a different syntax - %npm_package_<my prop>% - cross-var is an npm package that lets you use bash syntax"
+            "install cross var": "npm i cross-var --save-dev",
+            "use cross var": {
+              "code": "cross-var echo $npm_package_<my prop>"
+            }
+          }
+        }
       }
     }
   }
