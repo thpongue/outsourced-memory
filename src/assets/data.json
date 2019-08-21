@@ -87,12 +87,12 @@
           }
         },
         "stop all running containers": {
-          "code": "docker stop $(docker ps -a -q)",
+          "code": "docker stop $(docker ps -a -q)"
         }
       },
       "css": {
         "preventing double borders on n adjacent boxes": {
-          "code": "div {border-right: none;}\ndiv:last-child {border-right: 1px}",
+          "code": "div {border-right: none;}\ndiv:last-child {border-right: 1px}"
         },
         "media query precedence": "these don't take precedence over regular css - best to stick these at the bottom of the css to ensure they're applied"
       },
@@ -110,8 +110,12 @@
             }
           },
           "making it work cross platform": {
-            "windows requires a different syntax - %npm_package_<my prop>% - cross-var is an npm package that lets you use bash syntax"
-            "install cross var": "npm i cross-var --save-dev",
+            "windows requires a different syntax - so to make your code cross-platform try the cross-var package": {
+              "code": "%npm_package_<my prop>%"
+            },
+            "install cross var": {
+              "code": "npm i cross-var --save-dev"
+            },
             "use cross var": {
               "code": "cross-var echo $npm_package_<my prop>"
             }
