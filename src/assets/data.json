@@ -22,6 +22,13 @@
           "library projects": "currently ng-packagr doesn't have the ability to package up assets for library projects\n There is a workaround involving the code below in your npm scripts then referencing <your node module>/src/assets as one of the assets in your angular.json but its a bit icky. In my case I was referencing an svg file which I just put inline",
           "todo": {
             "micro front-ends": "using @angular/elements"
+          },
+          "ng template": {
+            "text": "already being used under the hood for common directives such as *ngIf, *ngFor and *ngSwitch"
+          },
+          "ng container": {
+            "text": "you cannot have 2 structural directives on the same node, but ideally you don't want to create an unnecessary extra div - ng-container fixes this issue",
+            "code": "<div *ngIf=\"lessons\">\n    <div class=\"lesson\" *ngFor=\"let lesson of lessons\">...\n// can be done as:\n\n<ng-container *ngIf=\"lessons\">\n    <div class=\"lesson\" *ngFor=\"let lesson of lessons\">"
           }
         }
       },
@@ -120,6 +127,11 @@
               "code": "cross-var echo $npm_package_<my prop>"
             }
           }
+        }
+      },
+      "git": {
+        "delete untracked files": {
+          "code": "git clean -f -d"
         }
       }
     }
