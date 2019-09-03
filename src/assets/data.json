@@ -148,7 +148,7 @@
             "step_8": "repeat steps 1-7 but with the email address used by your next github repo(s) - name it something appropriate eg rsa_work",
             "step_9": "vim ~/.ssh/config",
             "step_10": {
-              "code": "Host personal\n   HostName github.com\n   User git\n   IdentityFile ~/.ssh/id_rsa_personal\nHost work\n   HostName github.com\n   User git\n   IdentityFile ~/.ssh/id_rsa_work"
+              "code": "Host github.com\n   HostName github.com\n   User git\n   IdentityFile ~/.ssh/id_rsa_personal\nHost github.com-work\n   HostName github.com\n   User git\n   IdentityFile ~/.ssh/id_rsa_work"
             },
             "step_11": {
               "update your main .gitconfig to tell it to point to the new local one we're about to make": "vim ~/.gitconfig",
@@ -165,7 +165,7 @@
               "text": "sign in to both accounts",
               "code": "ssh -T personal\nssh -T work"
             },
-            "step_17": "done! now whenever your within your contextual folder it will use the appropriate credentials"
+            "step_17": "done! now whenever your within your contextual folder it will use the appropriate credentials - please remember to update the github url to whatever you've got in your .ssh/config (in my case my personal stuff stays unmodified and my work I change ot github.com-work). Also remember the condition includes will only work in git initialised repos"
           }
         }
       }
