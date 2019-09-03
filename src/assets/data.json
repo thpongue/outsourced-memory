@@ -132,6 +132,41 @@
       "git": {
         "delete untracked files": {
           "code": "git clean -f -d"
+        },
+        "github": {
+          "managing multiple accounts on one machine" : {
+            "prerequisite": "we're going to make use of conditional includes in your .gitconfig (introduced with git v2.13) so ensure that your different projects share a unique parent folder",
+            "step_1": "cd ~/.ssh",
+            "step_2": {
+              "code": "ssh-keygen -t rsa -b 4096 -C \"<the email address used by your first github repo>\""
+            },
+            "step_3": "name it something like rsa_personal",
+            "step_4": "don't bother with the password",
+            "step_5": "run ls to see the 2 files generated - the .pub contains the public key that can go on github; the other file contains your private key",
+            "step_6": "copy the public key, login to your github then go to settings > SSH and GPG keys > new SSH key",
+            "step_7": "paste the key in and save",
+            "step_8": "repeat steps 1-7 but with the email address used by your next github repo(s) - name it something appropriate eg rsa_work",
+            "step_9": "vim ~/.ssh/config",
+            "step_10": {
+              "code": "Host personal\n   HostName github.com\n   User git\n   IdentityFile ~/.ssh/id_rsa_personal\nHost work\n   HostName github.com\n   User git\n   IdentityFile ~/.ssh/id_rsa_work"
+            },
+            "step_11": {
+              "update your main .gitconfig to tell it to point to the new local one we're about to make": "vim ~/.gitconfig",
+              "code": "[includeIf \"gitdir:~/dev/work/\"]\n    path = ~/dev/work/.gitconfig"
+            },
+            "step_12": {
+              "create your new contextual .gitconfig in the root of your path your put in the main .gitconfig eg": "vim ~/dev/work/.gitconfig>",
+              "code": "[user]\nname = Dominic-McAdden\n    email = dominic.mcadden@lloydsonlinedoctor.com"
+            },
+            "step_13": "cd ~/.ssh",
+            "step_14": "call ssh-add passing the new paths eg ssh-add id_rsa_personal, ssh-add id_rsa_work",
+            "step_15": "ssh-add -l - confirm that the keys have been added",
+            "step_16": {
+              "text": "sign in to both accounts",
+              "code": "ssh -T personal\nssh -T work"
+            },
+            "step_17": "done! now whenever your within your contextual folder it will use the appropriate credentials"
+          }
         }
       }
     }
