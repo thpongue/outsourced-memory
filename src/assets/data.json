@@ -133,6 +133,7 @@
         "delete untracked files": {
           "code": "git clean -f -d"
         },
+        "debugging git over ssh": "GIT_SSH_COMMAND=\"ssh -v\" git clone git@github.com:<your url>",
         "github": {
           "managing multiple accounts on one machine" : {
             "prerequisite": "we're going to make use of conditional includes in your .gitconfig (introduced with git v2.13) so ensure that your different projects share a unique parent folder",
