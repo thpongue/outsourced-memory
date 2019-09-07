@@ -6,36 +6,40 @@
           "router-outlet tag": {
             "text": "this is not intended to contain the component just to mark where it's meant to go - see the comment by Pascal Precht in the link",
             "link": "https://github.com/angular/router/issues/325"
-          },
-          "nested data-driven components": {
-            "text": "pass the app-nested-list the topmost level then within app-nested-list component extract the next layer of data which it passes to another instance of app-nested-list\nthis continues recursively",
-            "code": "// parent node\n<app-nested-list [data]=\"data\"></app-nested-list>\n\n// then within the nested-list component\n<ul>\n<li *ngFor=\"let key of dataKeys\">\n<div [innerHTML]=\"toString(key) | escapeHtmlTags | sanitizeHtmlPipe\"></div>\n<app-nested-list [data]=\"data[key]\"></app-nested-list>\n</li>\n</ul>"
-          },
-          "displaying code within inner html": {
-            "text": "by default all code set via html will be added as html in the dom rather than as text, so if you want to show an html code sample you can create a pipe to replace < with &amp;lt; and > with &amp;gt;",
-            "code": "html.replace(/</g, '&amp;lt;').replace(/>/g, '&amp;gt;').replace(/\\n/g, '<br>');"
-          },
-          "arguments to angular pipes": {
-            "text": "when adding a pipe to your template use : to then pass parameters, : delimited for multiples,",
-            "code": "myString | myPipe : myParam"
-          },
-          "library projects": "currently ng-packagr doesn't have the ability to package up assets for library projects\n There is a workaround involving the code below in your npm scripts then referencing <your node module>/src/assets as one of the assets in your angular.json but its a bit icky. In my case I was referencing an svg file which I just put inline",
-          "todo": {
-            "micro front-ends": "using @angular/elements"
-          },
-          "ng template": {
-            "text": "already being used under the hood for common directives such as *ngIf, *ngFor and *ngSwitch"
-          },
-          "ng container": {
-            "text": "you cannot have 2 structural directives on the same node, but ideally you don't want to create an unnecessary extra div - ng-container fixes this issue",
-            "code": "<div *ngIf=\"lessons\">\n    <div class=\"lesson\" *ngFor=\"let lesson of lessons\">...\n// can be done as:\n\n<ng-container *ngIf=\"lessons\">\n    <div class=\"lesson\" *ngFor=\"let lesson of lessons\">"
           }
+        },
+        "nested data-driven components": {
+          "text": "pass the app-nested-list the topmost level then within app-nested-list component extract the next layer of data which it passes to another instance of app-nested-list\nthis continues recursively",
+          "code": "// parent node\n<app-nested-list [data]=\"data\"></app-nested-list>\n\n// then within the nested-list component\n<ul>\n<li *ngFor=\"let key of dataKeys\">\n<div [innerHTML]=\"toString(key) | escapeHtmlTags | sanitizeHtmlPipe\"></div>\n<app-nested-list [data]=\"data[key]\"></app-nested-list>\n</li>\n</ul>"
+        },
+        "displaying code within inner html": {
+          "text": "by default all code set via html will be added as html in the dom rather than as text, so if you want to show an html code sample you can create a pipe to replace < with &amp;lt; and > with &amp;gt;",
+          "code": "html.replace(/</g, '&amp;lt;').replace(/>/g, '&amp;gt;').replace(/\\n/g, '<br>');"
+        },
+        "arguments to angular pipes": {
+          "text": "when adding a pipe to your template use : to then pass parameters, : delimited for multiples,",
+          "code": "myString | myPipe : myParam"
+        },
+        "library projects": "currently ng-packagr doesn't have the ability to package up assets for library projects\n There is a workaround involving the code below in your npm scripts then referencing <your node module>/src/assets as one of the assets in your angular.json but its a bit icky. In my case I was referencing an svg file which I just put inline",
+        "todo": {
+          "micro front-ends": "using @angular/elements"
+        },
+        "ng template": {
+          "text": "already being used under the hood for common directives such as *ngIf, *ngFor and *ngSwitch"
+        },
+        "ng container": {
+          "text": "you cannot have 2 structural directives on the same node, but ideally you don't want to create an unnecessary extra div - ng-container fixes this issue",
+          "code": "<div *ngIf=\"lessons\">\n    <div class=\"lesson\" *ngFor=\"let lesson of lessons\">...\n// can be done as:\n\n<ng-container *ngIf=\"lessons\">\n    <div class=\"lesson\" *ngFor=\"let lesson of lessons\">"
+        },
+        "protractor": {
+          "fix \"Chrome version must be between x and y\" error if you're not able to upgrade to protractor 6 (yarn version)": "manually update the webdriver-manager dependency to the latest version in your yarn.lock, yarn cache clean, rm -rf node_modules, yarn install"
         }
       },
       "vim": {
         "switch case": "~",
         "reload current file": ":edit",
-        "current line to top of screen": "z"
+        "current line to top of screen": "z",
+        "exit with error code - quick way to exit from doing a git commit": "cq"
       },
       "tmux": {
         "text": "I've hit the point where the number of tabs in my console are disappearing off the end of the window.\n Tmux helps with this - instead of window -E tab - terminal - shell it does window - tab - terminal -E shell.\n More accurately we have something more like window - tab - terminal shell -E tmux session -E tmux window -E tmux pane - tmux shell. Although I love the ideas here my early experiences are that nvm stopped working and my vim settings were changed. I'll come back to this but not time to resolve these types of problems at the mo"
@@ -132,6 +136,9 @@
       "git": {
         "delete untracked files": {
           "code": "git clean -f -d"
+        },
+        "revert a number of commits and keep history": {
+          "code": "git revert --no-commit <your SHA>..\ngit commit -m \"<your commit message>\""
         },
         "debugging git over ssh": "GIT_SSH_COMMAND=\"ssh -v\" git clone git@github.com:<your url>",
         "github": {
