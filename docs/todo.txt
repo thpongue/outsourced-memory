@@ -7,3 +7,4 @@
     [] top level option to switch between list view and mind-map view
     [] have the option to link externally or to a more detailed internal link
     [] todo view irrespective of nesting level
+    [] add a special case for steps (ie consecutive keys of the format step+<number>

@@ -39,7 +39,8 @@
         "switch case": "~",
         "reload current file": ":edit",
         "current line to top of screen": "z",
-        "exit with error code - quick way to exit from doing a git commit": "cq"
+        "exit with error code - quick way to exit from doing a git commit": "cq",
+        "repeat last visual selection": "gv"
       },
       "tmux": {
         "text": "I've hit the point where the number of tabs in my console are disappearing off the end of the window.\n Tmux helps with this - instead of window -E tab - terminal - shell it does window - tab - terminal -E shell.\n More accurately we have something more like window - tab - terminal shell -E tmux session -E tmux window -E tmux pane - tmux shell. Although I love the ideas here my early experiences are that nvm stopped working and my vim settings were changed. I'll come back to this but not time to resolve these types of problems at the mo"
@@ -108,6 +109,15 @@
         "media query precedence": "these don't take precedence over regular css - best to stick these at the bottom of the css to ensure they're applied"
       },
       "npm": {
+        "using npm for local typescript dependencies": {
+          "npm link": {
+            "step1": "go into your (generated) dist folder (I always copy my package.json into my dist folder so this might be necessary)",
+            "step2": "npm link",
+            "step3": "go into the project that's using your project",
+            "step4": "npm link <npm dependency name from package.json>",
+            "step5": "for bonus points build this link command into your npm scripts so you don't have to bother with a readme and add a npm watch in to rebuild as soon as your dependency updates"
+          }
+        },
         "using variables in scripts": {
           "using the version property": {
             "code": "echo $npm_package_version"
@@ -142,6 +152,7 @@
         },
         "debugging git over ssh": "GIT_SSH_COMMAND=\"ssh -v\" git clone git@github.com:<your url>",
         "github": {
+
           "managing multiple accounts on one machine" : {
             "prerequisite": "we're going to make use of conditional includes in your .gitconfig (introduced with git v2.13) so ensure that your different projects share a unique parent folder",
             "step_1": "cd ~/.ssh",
