@@ -115,7 +115,8 @@
             "step2": "npm link",
             "step3": "go into the project that's using your project",
             "step4": "npm link <npm dependency name from package.json>",
-            "step5": "for bonus points build this link command into your npm scripts so you don't have to bother with a readme and add a npm watch in to rebuild as soon as your dependency updates"
+            "step5": "for bonus points build this link command into your npm scripts so you don't have to bother with a readme and add a npm watch in to rebuild as soon as your dependency updates",
+            "note": "it isn't possible to chain together modules using npm link as it doesn't move your linked node_modules into your generated node_modules - you can work around this by also running npm link in your dist folder everytime you generate it"
           }
         },
         "using variables in scripts": {
