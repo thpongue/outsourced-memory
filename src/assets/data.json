@@ -33,6 +33,10 @@
         },
         "protractor": {
           "fix \"Chrome version must be between x and y\" error if you're not able to upgrade to protractor 6 (yarn version)": "manually update the webdriver-manager dependency to the latest version in your yarn.lock, yarn cache clean, rm -rf node_modules, yarn install"
+        },
+        "angular async pipe": {
+          "text": "The angular async pipe allows the subscription to observables inside of the angular template syntax. Obvs this can also be used if *ngIf's. This also manages unsubscribing from the observable. Syntax eg",
+          "code": "<p>{{ myObservable$ | async }}</p>"
         }
       },
       "vim": {
