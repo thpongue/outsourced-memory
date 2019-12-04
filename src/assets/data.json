@@ -37,14 +37,34 @@
         "angular async pipe": {
           "text": "The angular async pipe allows the subscription to observables inside of the angular template syntax. Obvs this can also be used if *ngIf's. This also manages unsubscribing from the observable. Syntax eg",
           "code": "<p>{{ myObservable$ | async }}</p>"
+        },
+        "Internationalization (il8n)": {
+          "why i18n?": "its just an annoying obfuscation (ie it hinders people new to the subject) referring to the 18 letters between the i and n",
+          "Internationalization vs Localisation": ""
+        },
+        "material": {
+
+        },
+        "forms": {
+          "template vs reactive": {
+            "difference": "In a template-driven approach, most of the logic is driven from the template. In reactive-driven approach, the logic resides mainly in the component. Template-driven forms are harder to unit test",
+            "imports": "template requires FormsModule, reactive requires ReactiveFormsModule"
+          }
         }
+      },
+      "rxjs": {
+        "hot vs cold observables": "Subjects, unlike regular Observables, are what we would call “Hot”. A hot Observable is an Observable that can start emitting events before you subscribe. This means you can miss previous events that have already emitted"
       },
       "vim": {
         "switch case": "~",
         "reload current file": ":edit",
         "current line to top of screen": "z",
         "exit with error code - quick way to exit from doing a git commit": "cq",
-        "repeat last visual selection": "gv"
+        "repeat last visual selection": "gv",
+        "folding": {
+          "zo": "open folder under cursor",
+          "zc": "close folder under cursor"
+        }
       },
       "tmux": {
         "text": "I've hit the point where the number of tabs in my console are disappearing off the end of the window.\n Tmux helps with this - instead of window -E tab - terminal - shell it does window - tab - terminal -E shell.\n More accurately we have something more like window - tab - terminal shell -E tmux session -E tmux window -E tmux pane - tmux shell. Although I love the ideas here my early experiences are that nvm stopped working and my vim settings were changed. I'll come back to this but not time to resolve these types of problems at the mo"
@@ -191,6 +211,32 @@
             },
             "step_17": "done! now whenever your within your contextual folder it will use the appropriate credentials - please remember to update the github url to whatever you've got in your .ssh/config (in my case my personal stuff stays unmodified and my work I change ot github.com-work). Also remember the condition includes will only work in git initialised repos"
           }
+        }
+      },
+      "bash scripting": {
+        "find port in use": {
+          "code": "lsof -n -i4TCP:3001 | grep LISTEN",
+          "text": "2nd param returned is the port"
+        },
+        "kill process bypid": {
+          "code": "kill -9 <pid>"
+        }
+      },
+      "rxjs": {
+        "v6": {
+          "from": "this is like casting - turning a promise, array, collection or string into an observable"
+        }
+      },
+      "webstorm": {
+        "optimise imports": "ctrl + alt + o"
+      },
+      "testing": {
+        "test doubles (Martin Fowler version)": {
+          "Dummy objects": "are passed around but never actually used. Usually they are just used to fill parameter lists",
+          "Fakes": "actually have working implementations, but usually take some shortcut which makes them not suitable for production (an InMemoryTestDatabase is a good example)",
+          "Stubs": "provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test.",
+          "Spies": "are stubs that also record some information based on how they were called. One form of this might be an email service that records how many messages it was sent.",
+          "Mocks": "are pre-programmed with expectations which form a specification of the calls they are expected to receive. They can throw an exception if they receive a call they don't expect and are checked during verification to ensure they got all the calls they were expecting."
         }
       }
     }
