@@ -50,7 +50,8 @@
             "difference": "In a template-driven approach, most of the logic is driven from the template. In reactive-driven approach, the logic resides mainly in the component. Template-driven forms are harder to unit test",
             "imports": "template requires FormsModule, reactive requires ReactiveFormsModule"
           }
-        }
+        },
+        "upgrade to latest cli": "npm install -g @angular/cli@latest"
       },
       "rxjs": {
         "hot vs cold observables": "Subjects, unlike regular Observables, are what we would call “Hot”. A hot Observable is an Observable that can start emitting events before you subscribe. This means you can miss previous events that have already emitted"
