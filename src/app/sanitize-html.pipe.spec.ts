@@ -1,8 +1,8 @@
-import { SanitizeHtmlPipe } from './sanitize-html-pipe.pipe';
+import {SanitizeHtmlPipe} from './sanitize-html.pipe';
 
 describe('SanitizeHtmlPipePipe', () => {
   it('create an instance', () => {
-    const pipe = new SanitizeHtmlPipe();
+    const pipe = new SanitizeHtmlPipe(null);
     expect(pipe).toBeTruthy();
   });
 });
